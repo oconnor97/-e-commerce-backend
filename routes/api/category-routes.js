@@ -15,8 +15,8 @@ router.get('/', async (req, res) => {
       ]
     })
     res.status(200).json(categoryData);
-  } catch (err) {
-    res.status(500).json(err)
+  } catch ({ message }) {
+    res.status(500).json({ message })
   }
 });
 
@@ -32,8 +32,8 @@ router.get('/:id', async (req, res) => {
       ]
     })
     res.status(200).json(categoryData);
-  } catch (err) {
-    res.status(500).json(err)
+  } catch ({ message }) {
+    res.status(500).json({ message })
   }
 });
 
@@ -42,8 +42,8 @@ router.post('/', async (req, res) => {
   try {
     const categoryData = await Category.create(req.body)
     res.status(200).json(categoryData);
-  } catch (err) {
-    res.status(500).json(err)
+  } catch ({ message }) {
+    res.status(500).json({ message })
   }
 });
 
@@ -58,8 +58,8 @@ router.put('/:id', async (req, res) => {
         }
       })
     res.status(200).json(categoryData);
-  } catch (err) {
-    res.status(500).json(err)
+  } catch ({ message }) {
+    res.status(500).json({ message })
   }
 });
 
@@ -72,8 +72,8 @@ router.delete('/:id', async (req, res) => {
       }
     })
     res.json(categoryData)
-  } catch (err) {
-    res.status(500).json(err)
+  } catch ({ message }) {
+    res.status(500).json({ message })
   }
 });
 
