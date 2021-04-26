@@ -39,6 +39,9 @@ router.get('/:id', async (req, res) => {
         }
       ]
     })
+    if (!productData) {
+      res.status(404).json({ message: 'No products with this id found!' })
+    }
     res.status(200).json(productData);
   } catch ({ message }) {
     res.status(500).json({ message })
@@ -127,6 +130,9 @@ router.delete('/:id', async (req, res) => {
         id: req.params.id
       }
     })
+    if (!productData) {
+      res.status(404).json({ message: 'No products with this id found!' })
+    }
     res.json(productData)
   } catch ({ message }) {
     res.status(500).json({ message })
